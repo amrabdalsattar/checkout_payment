@@ -26,9 +26,8 @@ abstract class AppRouter {
   static Map<String, Widget Function(BuildContext)> generateRoutes(
       BuildContext context) {
     return {
-      AppConstants.cartScreenRoute: (context) => const CartScreen(),
-      AppConstants.paymentDetailsRoute: (context) =>
-          const PaymentDetailsScreen(),
+      AppStrings.cartScreenRoute: (context) => const CartScreen(),
+      AppStrings.paymentDetailsRoute: (context) => const PaymentDetailsScreen(),
     };
   }
 }

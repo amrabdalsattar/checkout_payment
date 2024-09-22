@@ -1,5 +1,4 @@
 import 'package:checkout_payment/core/shared_widgets/custom_button.dart';
-import 'package:checkout_payment/features/checkout/presentation/screens/payment_details/payment_details_widgets/custom_credit_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
@@ -28,11 +27,6 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
           ),
           const SliverToBoxAdapter(
               child: Center(child: PaymentMethodsListView())),
-          SliverToBoxAdapter(
-              child: CustomCreditCard(
-            formKey: formKey,
-            autoValidateMode: autoValidateMode,
-          )),
           SliverFillRemaining(
               hasScrollBody: false,
               child: Align(

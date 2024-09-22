@@ -26,7 +26,7 @@ class CheckoutPayment extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.white,
         ),
         routes: AppRouter.generateRoutes(context),
-        initialRoute: AppConstants.cartScreenRoute,
+        initialRoute: AppStrings.cartScreenRoute,
       ),
     );
   }
