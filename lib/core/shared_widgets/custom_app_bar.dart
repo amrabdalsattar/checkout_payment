@@ -11,22 +11,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
   final bool isFirstScreen;
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.white,
-      surfaceTintColor: AppColors.white,
-      leading: isFirstScreen
-          ? null
-          : IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Image.asset(Images.backArrow)),
-      toolbarHeight: 80,
-      title: Text(
-        title,
-        style: Styles.medium25,
+    return SafeArea(
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: AppColors.white,
+        leading: isFirstScreen
+            ? null
+            : Align(
+                alignment: Alignment.bottomCenter,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Image.asset(Images.backArrow)),
+              ),
+        toolbarHeight: 80,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Text(
+            title,
+            style: Styles.medium25,
+          ),
+        ),
+        centerTitle: true,
       ),
-      centerTitle: true,
     );
   }
 

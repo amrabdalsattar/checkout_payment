@@ -5,7 +5,7 @@ abstract class Styles {
   // Regular styles
   static TextStyle regular20 = TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: 20.sp,
+    fontSize: 17.sp,
   );
   static TextStyle regular15 = TextStyle(
     fontWeight: FontWeight.w400,
@@ -53,7 +53,7 @@ abstract class Styles {
   );
   static TextStyle semiBold18 = TextStyle(
     fontWeight: FontWeight.w600,
-    fontSize: 18.sp,
+    fontSize: 15.sp,
   );
   static TextStyle semiBold12 = TextStyle(
     fontWeight: FontWeight.w600,

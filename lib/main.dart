@@ -1,8 +1,11 @@
-import 'package:checkout_payment/core/utils/app_colors.dart';
+import 'package:checkout_payment/features/checkout/presentation/screens/cart/cart_screen.dart';
+import 'package:flutter/services.dart';
 
+import 'core/utils/app_colors.dart';
 import 'core/utils/app_constants.dart';
 import 'core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
@@ -15,6 +18,10 @@ class CheckoutPayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColors.white,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -24,9 +31,12 @@ class CheckoutPayment extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Inter',
           scaffoldBackgroundColor: AppColors.white,
+          bottomSheetTheme:
+              const BottomSheetThemeData(backgroundColor: AppColors.white),
         ),
         routes: AppRouter.generateRoutes(context),
         initialRoute: AppStrings.cartScreenRoute,
+        home: const CartScreen(),
       ),
     );
   }

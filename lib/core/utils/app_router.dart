@@ -1,3 +1,4 @@
+import '../../features/checkout/presentation/screens/payment_completion/payment_completion_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/checkout/presentation/screens/cart/cart_screen.dart';
@@ -28,6 +29,8 @@ abstract class AppRouter {
     return {
       AppStrings.cartScreenRoute: (context) => const CartScreen(),
       AppStrings.paymentDetailsRoute: (context) => const PaymentDetailsScreen(),
+      AppStrings.paymentCompletionScreenRoute: (context) =>
+          const PaymentCompletionScreen(),
     };
   }
 }

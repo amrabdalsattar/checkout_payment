@@ -1,11 +1,10 @@
-import 'package:checkout_payment/core/utils/app_router.dart';
-import 'package:checkout_payment/features/checkout/presentation/screens/payment_details/payment_details_screen.dart';
+import 'package:checkout_payment/features/checkout/presentation/screens/cart/custom_cart_widgets/payment_methods_bottom_sheet.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
 import '../../../../../core/shared_widgets/custom_button.dart';
 import '../../../../../core/shared_widgets/custom_divider.dart';
 import '../../../../../core/shared_widgets/total_price.dart';
-import '../../../../../core/utils/app_colors.dart';
+
 import '../../../../../core/utils/images.dart';
 import 'custom_cart_widgets/order_info_item.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,6 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
       appBar: const CustomAppBar(
         title: 'My Cart',
         isFirstScreen: true,
@@ -34,9 +32,9 @@ class CartScreen extends StatelessWidget {
             SizedBox(
               height: 24.sp,
             ),
-            const OrderInfoItem(infoTitle: 'Order Subtotal', value: 42.97),
-            const OrderInfoItem(infoTitle: 'Discount', value: 0),
-            const OrderInfoItem(infoTitle: 'Shipping', value: 8),
+            const OrderInfoItem(infoTitle: 'Order Subtotal', value: r'$42.97'),
+            const OrderInfoItem(infoTitle: 'Discount', value: r'$0'),
+            const OrderInfoItem(infoTitle: 'Shipping', value: r'$8'),
             SizedBox(
               height: 16.h,
             ),
@@ -46,15 +44,16 @@ class CartScreen extends StatelessWidget {
             SizedBox(
               height: 13.h,
             ),
-            const TotalPrice(),
+            const TotalPrice(title: 'Total', value: '50,97'),
             SizedBox(
               height: 14.h,
             ),
             CustomButton(
               title: 'Complete Payment',
               onPressed: () {
-                AppRouter.navigationWithSlide(
-                    context, const PaymentDetailsScreen());
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) => const PaymentMethodsBottomSheet());
               },
             ),
             SizedBox(

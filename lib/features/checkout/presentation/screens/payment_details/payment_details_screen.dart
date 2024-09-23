@@ -1,4 +1,6 @@
-import 'package:checkout_payment/core/shared_widgets/custom_button.dart';
+import '../../../../../core/shared_widgets/custom_button.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../payment_completion/payment_completion_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
@@ -37,12 +39,8 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
                   child: CustomButton(
                     title: 'Pay',
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                      } else {
-                        autoValidateMode = AutovalidateMode.always;
-                        setState(() {});
-                      }
+                      AppRouter.navigationWithSlide(
+                          context, const PaymentCompletionScreen());
                     },
                   ),
                 ),
