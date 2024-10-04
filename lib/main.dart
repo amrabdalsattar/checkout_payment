@@ -1,3 +1,4 @@
+import 'package:checkout_payment/core/di/di.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ import 'features/checkout/presentation/screens/cart/cart_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
+  configureDependencies();
   await ScreenUtil.ensureScreenSize();
   runApp(const CheckoutPayment());
 }

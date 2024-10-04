@@ -1,4 +1,6 @@
 import 'package:checkout_payment/core/shared_widgets/custom_button.dart';
+import 'package:checkout_payment/core/utils/app_router.dart';
+import 'package:checkout_payment/features/checkout/presentation/screens/payment_completion/payment_completion_screen.dart';
 import 'package:checkout_payment/features/checkout/presentation/screens/payment_details/payment_details_widgets/payment_methods_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +22,10 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           ),
           CustomButton(
             title: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigationWithSlide(
+                  context, const PaymentCompletionScreen());
+            },
           )
         ],
       ),
