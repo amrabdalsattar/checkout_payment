@@ -1,3 +1,4 @@
+import 'package:checkout_payment/core/utils/api_keys.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'api_factory.dart';
@@ -6,13 +7,11 @@ import 'api_factory.dart';
 class DioFactory extends ApiFactory {
   late Dio dio;
   DioFactory({required this.dio}) {
-    // TODO: Add token to Authorization Bearer
     final options = BaseOptions(
-        baseUrl: 'apiBaseUrl', // Add Base Url
         connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 20),
         receiveDataWhenStatusError: true,
-        headers: {'Authorization': 'Bearer {}'});
+        headers: {'Authorization': 'Bearer ${ApiKeys.stripeSecretKey}'});
     dio = Dio(options);
     dio.interceptors.add(LogInterceptor(
       request: true,
