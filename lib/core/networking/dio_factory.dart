@@ -11,6 +11,7 @@ class DioFactory extends ApiFactory {
         connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 20),
         receiveDataWhenStatusError: true,
+        contentType: Headers.formUrlEncodedContentType,
         headers: {'Authorization': 'Bearer ${ApiKeys.stripeSecretKey}'});
     dio = Dio(options);
     dio.interceptors.add(LogInterceptor(

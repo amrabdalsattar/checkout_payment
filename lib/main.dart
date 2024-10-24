@@ -1,6 +1,8 @@
 import 'package:checkout_payment/core/di/di.dart';
+import 'package:checkout_payment/core/utils/api_keys.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_constants.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   configureDependencies();
+  Stripe.publishableKey = ApiKeys.stripePublishableKey;
   await ScreenUtil.ensureScreenSize();
   runApp(const CheckoutPayment());
 }

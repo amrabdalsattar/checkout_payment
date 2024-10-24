@@ -7,15 +7,16 @@ import '../../../../../core/networking/api_factory.dart';
 
 @injectable
 class StripeService {
-  final ApiFactory apiFactory;
   const StripeService(this.apiFactory);
+
+  final ApiFactory apiFactory;
 
   Future<PaymentIntentModel> createPaymentIntent(
       PaymentIntentInputModel paymentIntentInputModel) async {
     var response = await apiFactory.post(
-      "https://api.stripe.com/v1/payment_intents",
-      data: paymentIntentInputModel.toJson(),
-    );
+        "https://api.stripe.com/v1/payment_intents",
+        data: paymentIntentInputModel.toJson());
+
     PaymentIntentModel paymentIntentModel =
         PaymentIntentModel.fromJson(response);
     return paymentIntentModel;
@@ -31,12 +32,13 @@ class StripeService {
   }
 
   Future<void> displayPaymentSheet() async {
-    Stripe.instance.presentPaymentSheet();
+    await Stripe.instance.presentPaymentSheet();
   }
 
   Future<void> executePayment(
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     var paymentIntentModel = await createPaymentIntent(paymentIntentInputModel);
+
     await initPaymentSheet(
         paymentIntentClientSecret: paymentIntentModel.clientSecret!);
     await displayPaymentSheet();

@@ -31,7 +31,7 @@ class PaymentIntentModel {
   dynamic onBehalfOf;
   dynamic paymentMethod;
   PaymentMethodOptions? paymentMethodOptions;
-  List<String>? paymentMethodTypes;
+  List<dynamic>? paymentMethodTypes;
   dynamic processing;
   dynamic receiptEmail;
   dynamic review;
@@ -88,57 +88,7 @@ class PaymentIntentModel {
 
   factory PaymentIntentModel.fromJson(Map<String, dynamic> json) =>
       PaymentIntentModel(
-        id: json['id'] as String?,
-        object: json['object'] as String?,
-        amount: json['amount'] as int?,
-        amountCapturable: json['amount_capturable'] as int?,
-        amountDetails: json['amount_details'] == null
-            ? null
-            : AmountDetails.fromJson(
-                json['amount_details'] as Map<String, dynamic>),
-        amountReceived: json['amount_received'] as int?,
-        application: json['application'] as dynamic,
-        applicationFeeAmount: json['application_fee_amount'] as dynamic,
-        automaticPaymentMethods: json['automatic_payment_methods'] == null
-            ? null
-            : AutomaticPaymentMethods.fromJson(
-                json['automatic_payment_methods'] as Map<String, dynamic>),
-        canceledAt: json['canceled_at'] as dynamic,
-        cancellationReason: json['cancellation_reason'] as dynamic,
-        captureMethod: json['capture_method'] as String?,
         clientSecret: json['client_secret'] as String?,
-        confirmationMethod: json['confirmation_method'] as String?,
-        created: json['created'] as int?,
-        currency: json['currency'] as String?,
-        customer: json['customer'] as dynamic,
-        description: json['description'] as dynamic,
-        invoice: json['invoice'] as dynamic,
-        lastPaymentError: json['last_payment_error'] as dynamic,
-        latestCharge: json['latest_charge'] as dynamic,
-        liveMode: json['livemode'] as bool?,
-        metadata: json['metadata'] == null
-            ? null
-            : Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
-        nextAction: json['next_action'] as dynamic,
-        onBehalfOf: json['on_behalf_of'] as dynamic,
-        paymentMethod: json['payment_method'] as dynamic,
-        paymentMethodOptions: json['payment_method_options'] == null
-            ? null
-            : PaymentMethodOptions.fromJson(
-                json['payment_method_options'] as Map<String, dynamic>),
-        paymentMethodTypes: json['payment_method_types'] as List<String>?,
-        processing: json['processing'] as dynamic,
-        receiptEmail: json['receipt_email'] as dynamic,
-        review: json['review'] as dynamic,
-        setupFutureUsage: json['setup_future_usage'] as dynamic,
-        shipping: json['shipping'] as dynamic,
-        source: json['source'] as dynamic,
-        statementDescriptor: json['statement_descriptor'] as dynamic,
-        statementDescriptorSuffix:
-            json['statement_descriptor_suffix'] as dynamic,
-        status: json['status'] as String?,
-        transferData: json['transfer_data'] as dynamic,
-        transferGroup: json['transfer_group'] as dynamic,
       );
 
   Map<String, dynamic> toJson() => {

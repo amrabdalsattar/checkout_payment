@@ -17,9 +17,10 @@ import 'package:internet_connection_checker/internet_connection_checker.dart'
 import '../../features/checkout/data/data_sources/payment_services/stripe_service.dart'
     as _i750;
 import '../../features/checkout/data/repos/checkout_repo.dart' as _i553;
+import '../../features/checkout/presentation/logic/cubit/stripe_payment_cubit.dart'
+    as _i134;
 import '../networking/api_factory.dart' as _i269;
 import '../networking/dio_factory.dart' as _i103;
-import '../payment_services/stripe_service.dart' as _i619;
 import 'package_module.dart' as _i611;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -40,12 +41,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i269.ApiFactory>(() => _i103.DioFactory(dio: gh<_i361.Dio>()));
     gh.factory<_i750.StripeService>(
         () => _i750.StripeService(gh<_i269.ApiFactory>()));
-    gh.factory<_i619.StripeService>(
-        () => _i619.StripeService(gh<_i269.ApiFactory>()));
     gh.factory<_i553.CheckoutRepo>(() => _i553.CheckoutRepo(
-          gh<_i619.StripeService>(),
+          gh<_i750.StripeService>(),
           gh<_i973.InternetConnectionChecker>(),
         ));
+    gh.factory<_i134.StripePaymentCubit>(
+        () => _i134.StripePaymentCubit(gh<_i553.CheckoutRepo>()));
     return this;
   }
 }
