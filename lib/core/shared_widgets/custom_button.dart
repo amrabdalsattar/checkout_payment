@@ -31,6 +31,7 @@ class CustomButton extends StatelessWidget {
           child: isLoading
               ? const CircularProgressIndicator(
                   color: AppColors.black,
+                  strokeWidth: 2,
                 )
               : Text(
                   title,

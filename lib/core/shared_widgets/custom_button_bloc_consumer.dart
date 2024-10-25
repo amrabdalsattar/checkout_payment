@@ -1,11 +1,11 @@
-import 'package:checkout_payment/core/utils/app_colors.dart';
-import 'package:checkout_payment/features/checkout/data/models/payment_intent/payment_intent_input_model.dart';
-import 'package:checkout_payment/features/checkout/presentation/logic/cubit/stripe_payment_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/checkout/data/models/payment_intent/payment_intent_input_model.dart';
+import '../../features/checkout/presentation/logic/cubit/stripe_payment_cubit.dart';
 import '../../features/checkout/presentation/screens/payment_completion/payment_completion_screen.dart';
 import '../utils/app_router.dart';
+import '../utils/dialog_utils.dart';
 import 'custom_button.dart';
 
 class CustomButtonBlocConsumer extends StatefulWidget {
@@ -28,15 +28,15 @@ class _CustomButtonBlocConsumerState extends State<CustomButtonBlocConsumer> {
         switch (state) {
           case StripePaymentSuccess():
             isLoading = false;
+            Navigator.pop(context);
             AppRouter.navigationWithSlide(
                 context, const PaymentCompletionScreen());
+
           case StripePaymentFailure():
             Navigator.pop(context);
             isLoading = false;
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: AppColors.red,
-            ));
+            DialogUtils.showErrorSnackBar(context, state.errorMessage);
+
           case StripePaymentLoading():
             isLoading = true;
           default:
