@@ -1,6 +1,6 @@
-import 'package:checkout_payment/core/utils/api_keys.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import '../utils/api_keys.dart';
 import 'api_factory.dart';
 
 @Injectable(as: ApiFactory)
@@ -8,11 +8,11 @@ class DioFactory extends ApiFactory {
   late Dio dio;
   DioFactory({required this.dio}) {
     final options = BaseOptions(
-        connectTimeout: const Duration(seconds: 20),
-        receiveTimeout: const Duration(seconds: 20),
-        receiveDataWhenStatusError: true,
-        contentType: Headers.formUrlEncodedContentType,
-        headers: {'Authorization': 'Bearer ${ApiKeys.stripeSecretKey}'});
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
+      receiveDataWhenStatusError: true,
+      contentType: Headers.formUrlEncodedContentType,
+    );
     dio = Dio(options);
     dio.interceptors.add(LogInterceptor(
       request: true,
@@ -69,10 +69,20 @@ class DioFactory extends ApiFactory {
       {Object? data,
       String? contentType,
       Map<String, dynamic>? queryParameters,
+      Map<String, dynamic>? headers,
       bool isFormData = false}) async {
     try {
-      final response =
-          await dio.post(path, data: data, queryParameters: queryParameters);
+      final response = await dio.post(
+        path,
+        data: data,
+        queryParameters: queryParameters,
+        options: Options(
+          headers: headers ??
+              {
+                'Authorization': 'Bearer ${ApiKeys.stripeSecretKey}',
+              },
+        ),
+      );
       return response.data;
     } catch (e) {
       e.toString();

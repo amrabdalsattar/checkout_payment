@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../data_sources/payment_services/stripe_service.dart';
-import '../models/payment_intent/payment_intent_input_model.dart';
+import '../models/payment_intent_input_model.dart';
 
 @injectable
 class CheckoutRepo {
@@ -22,7 +22,7 @@ class CheckoutRepo {
             paymentIntentInputModel: paymentIntentInputModel);
         return const Right(null);
       } catch (e) {
-        return const Left(Failure('Something went wrong!'));
+        return Left(Failure(e.toString()));
       }
     } else {
       return const Left(Failure('Check your internet connection!'));

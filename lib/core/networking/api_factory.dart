@@ -10,6 +10,7 @@ abstract class ApiFactory {
     String? contentType,
     Object? data,
     Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
     bool isFormData = false,
   });
 

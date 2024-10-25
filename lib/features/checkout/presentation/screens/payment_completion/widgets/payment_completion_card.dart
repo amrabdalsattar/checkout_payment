@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../../../../../../core/shared_widgets/custom_divider.dart';
 import '../../../../../../core/shared_widgets/total_price.dart';
 import '../../cart/custom_cart_widgets/order_info_item.dart';
@@ -42,15 +44,16 @@ class PaymentCompletionCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  const OrderInfoItem(infoTitle: 'Date', value: '01/24/2023'),
+                  OrderInfoItem(infoTitle: 'Date', value: pickTodayDate()),
                   SizedBox(
                     height: 17.h,
                   ),
-                  const OrderInfoItem(infoTitle: 'Time', value: '10:15 AM'),
+                  OrderInfoItem(infoTitle: 'Time', value: pickHour()),
                   SizedBox(
                     height: 17.h,
                   ),
-                  const OrderInfoItem(infoTitle: 'To', value: 'Sam Louis'),
+                  const OrderInfoItem(
+                      infoTitle: 'To', value: 'Amr Abdelsattar'),
                   SizedBox(height: 25.h),
                   const CustomDivider(dividerPercentageFromWidth: 0.83),
                   SizedBox(
@@ -71,4 +74,15 @@ class PaymentCompletionCard extends StatelessWidget {
       ),
     );
   }
+}
+
+String pickTodayDate() {
+  int day = DateTime.now().day;
+  int month = DateTime.now().month;
+  int year = DateTime.now().year;
+  return "$day/$month/$year";
+}
+
+String pickHour() {
+  return DateFormat('hh:mm a').format(DateTime.now());
 }

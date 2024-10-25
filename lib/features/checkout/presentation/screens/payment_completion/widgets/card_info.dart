@@ -22,7 +22,7 @@ class CardInfo extends StatelessWidget {
         leading: Image.asset(Images.creditCardLogo),
         title: const Text('Credit Card'),
         titleTextStyle: Styles.regular15.copyWith(color: AppColors.black),
-        subtitle: const Text('Mastercard **78'),
+        subtitle: const Text('Mastercard **42'),
       ),
     );
   }

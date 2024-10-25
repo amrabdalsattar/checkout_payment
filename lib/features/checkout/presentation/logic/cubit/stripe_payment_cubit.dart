@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:checkout_payment/features/checkout/data/models/payment_intent/payment_intent_input_model.dart';
+import 'package:checkout_payment/features/checkout/data/models/payment_intent_input_model.dart';
 import 'package:checkout_payment/features/checkout/data/repos/checkout_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
