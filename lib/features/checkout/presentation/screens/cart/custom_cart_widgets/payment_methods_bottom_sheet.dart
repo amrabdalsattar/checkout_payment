@@ -15,6 +15,7 @@ class PaymentMethodsBottomSheet extends StatefulWidget {
 }
 
 class _PaymentMethodsBottomSheetState extends State<PaymentMethodsBottomSheet> {
+  String paymentMethod = 'stripe';
   StripePaymentCubit stripePaymentCubit = getIt<StripePaymentCubit>();
   @override
   Widget build(BuildContext context) {
@@ -26,12 +27,15 @@ class _PaymentMethodsBottomSheetState extends State<PaymentMethodsBottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const PaymentMethodsListView(),
+            PaymentMethodsListView(
+              paymentMethod: paymentMethod,
+            ),
             SizedBox(
               height: 30.h,
             ),
             CustomButtonBlocConsumer(
               stripePaymentCubit: stripePaymentCubit,
+              paymentMethod: paymentMethod,
             )
           ],
         ),

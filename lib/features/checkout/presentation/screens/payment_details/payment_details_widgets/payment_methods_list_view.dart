@@ -5,8 +5,10 @@ import '../../../../../../core/utils/images.dart';
 import 'payment_method.dart';
 
 class PaymentMethodsListView extends StatefulWidget {
-  const PaymentMethodsListView({
+  String paymentMethod;
+  PaymentMethodsListView({
     super.key,
+    required this.paymentMethod,
   });
 
   @override

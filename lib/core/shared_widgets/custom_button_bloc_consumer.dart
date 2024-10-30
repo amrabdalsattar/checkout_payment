@@ -1,3 +1,4 @@
+import 'package:checkout_payment/features/checkout/presentation/logic/paybal_logic/paybal_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +11,11 @@ import 'custom_button.dart';
 
 class CustomButtonBlocConsumer extends StatelessWidget {
   final StripePaymentCubit stripePaymentCubit;
-  const CustomButtonBlocConsumer({super.key, required this.stripePaymentCubit});
+  final String paymentMethod;
+  const CustomButtonBlocConsumer(
+      {super.key,
+      required this.stripePaymentCubit,
+      required this.paymentMethod});
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +37,22 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        var transactionData = PaypalManager.getTransactionData(context);
         return CustomButton(
           isLoading: state is StripePaymentLoading,
           title: 'Continue',
           onPressed: () {
-            stripePaymentCubit.executePayment(const PaymentIntentInputModel(
-              amount: 50.97,
-              currency: 'USD',
-              customerId: '123456Aa',
-            ));
+            if (paymentMethod == 'stripe') {
+              stripePaymentCubit.executePayment(const PaymentIntentInputModel(
+                amount: 50.97,
+                currency: 'USD',
+                customerId: '123456Aa',
+              ));
+            } else {
+              PaypalManager.executePaybalPayment(context,
+                  amount: transactionData.amount,
+                  itemList: transactionData.itemList);
+            }
           },
         );
       },

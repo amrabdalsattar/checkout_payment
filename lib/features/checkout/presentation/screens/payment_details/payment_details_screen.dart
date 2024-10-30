@@ -27,8 +27,11 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
               height: 20,
             ),
           ),
-          const SliverToBoxAdapter(
-              child: Center(child: PaymentMethodsListView())),
+          SliverToBoxAdapter(
+              child: Center(
+                  child: PaymentMethodsListView(
+            paymentMethod: '',
+          ))),
           SliverFillRemaining(
               hasScrollBody: false,
               child: Align(

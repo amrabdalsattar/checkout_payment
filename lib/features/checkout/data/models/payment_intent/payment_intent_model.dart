@@ -1,6 +1,5 @@
-import 'amount_details.dart';
 import 'automatic_payment_methods.dart';
-import 'metadata.dart';
+
 import 'payment_method_options.dart';
 
 class PaymentIntentModel {
@@ -8,7 +7,6 @@ class PaymentIntentModel {
   String? object;
   int? amount;
   int? amountCapturable;
-  AmountDetails? amountDetails;
   int? amountReceived;
   dynamic application;
   dynamic applicationFeeAmount;
@@ -26,7 +24,6 @@ class PaymentIntentModel {
   dynamic lastPaymentError;
   dynamic latestCharge;
   bool? liveMode;
-  Metadata? metadata;
   dynamic nextAction;
   dynamic onBehalfOf;
   dynamic paymentMethod;
@@ -49,7 +46,6 @@ class PaymentIntentModel {
     this.object,
     this.amount,
     this.amountCapturable,
-    this.amountDetails,
     this.amountReceived,
     this.application,
     this.applicationFeeAmount,
@@ -66,8 +62,6 @@ class PaymentIntentModel {
     this.invoice,
     this.lastPaymentError,
     this.latestCharge,
-    this.liveMode,
-    this.metadata,
     this.nextAction,
     this.onBehalfOf,
     this.paymentMethod,
@@ -96,7 +90,6 @@ class PaymentIntentModel {
         'object': object,
         'amount': amount,
         'amount_capturable': amountCapturable,
-        'amount_details': amountDetails?.toJson(),
         'amount_received': amountReceived,
         'application': application,
         'application_fee_amount': applicationFeeAmount,
@@ -114,7 +107,6 @@ class PaymentIntentModel {
         'last_payment_error': lastPaymentError,
         'latest_charge': latestCharge,
         'livemode': liveMode,
-        'metadata': metadata?.toJson(),
         'next_action': nextAction,
         'on_behalf_of': onBehalfOf,
         'payment_method': paymentMethod,
