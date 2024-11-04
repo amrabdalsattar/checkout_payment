@@ -1,4 +1,4 @@
-import 'package:checkout_payment/features/checkout/presentation/screens/cart/custom_cart_widgets/payment_methods_bottom_sheet.dart';
+import 'custom_cart_widgets/payment_methods_bottom_sheet.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
 import '../../../../../core/shared_widgets/custom_button.dart';

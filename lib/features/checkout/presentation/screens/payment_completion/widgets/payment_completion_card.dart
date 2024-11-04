@@ -1,15 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../core/shared_widgets/custom_divider.dart';
 import '../../../../../../core/shared_widgets/total_price.dart';
-import '../../cart/custom_cart_widgets/order_info_item.dart';
-import 'card_info.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../cart/custom_cart_widgets/order_info_item.dart';
 import 'barcode_widget.dart';
+import 'card_info.dart';
 
 class PaymentCompletionCard extends StatelessWidget {
   const PaymentCompletionCard({

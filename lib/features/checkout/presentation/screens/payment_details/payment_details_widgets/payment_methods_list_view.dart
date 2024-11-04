@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import '../../../logic/cubit/stripe_payment_cubit.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,11 +8,8 @@ import '../../../../../../core/utils/images.dart';
 import 'payment_method.dart';
 
 class PaymentMethodsListView extends StatefulWidget {
-  String paymentMethod;
-  PaymentMethodsListView({
-    super.key,
-    required this.paymentMethod,
-  });
+  final StripePaymentCubit stripePaymentCubit;
+  const PaymentMethodsListView({super.key, required this.stripePaymentCubit});
 
   @override
   State<PaymentMethodsListView> createState() => _PaymentMethodsListViewState();
@@ -36,6 +36,14 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (_, index) => GestureDetector(
           onTap: () {
+            if (widget.stripePaymentCubit.isStripeSelected) {
+              widget.stripePaymentCubit.isStripeSelected = false;
+              log("${widget.stripePaymentCubit.isStripeSelected}");
+            } else {
+              widget.stripePaymentCubit.isStripeSelected = true;
+              log("${widget.stripePaymentCubit.isStripeSelected}");
+            }
+
             activeItemIndex = index;
             setState(() {});
           },

@@ -4,7 +4,6 @@ import '../payment_completion/payment_completion_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
-import 'payment_details_widgets/payment_methods_list_view.dart';
 
 class PaymentDetailsScreen extends StatefulWidget {
   const PaymentDetailsScreen({super.key});
@@ -27,11 +26,7 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
               height: 20,
             ),
           ),
-          SliverToBoxAdapter(
-              child: Center(
-                  child: PaymentMethodsListView(
-            paymentMethod: '',
-          ))),
+          const SliverToBoxAdapter(child: Center()),
           SliverFillRemaining(
               hasScrollBody: false,
               child: Align(

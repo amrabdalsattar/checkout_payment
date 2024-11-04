@@ -1,4 +1,4 @@
-import 'package:checkout_payment/core/networking/failure.dart';
+import '../../../../core/networking/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';

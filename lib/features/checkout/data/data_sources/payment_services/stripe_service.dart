@@ -1,5 +1,5 @@
-import 'package:checkout_payment/core/networking/api_constants.dart';
-import 'package:checkout_payment/features/checkout/data/models/ephemeral_key/ephemeral_key_response.dart';
+import '../../../../../core/networking/api_constants.dart';
+import '../../models/ephemeral_key/ephemeral_key_response.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:injectable/injectable.dart';

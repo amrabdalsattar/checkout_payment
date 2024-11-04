@@ -1,7 +1,7 @@
-import 'package:checkout_payment/core/di/di.dart';
-import 'package:checkout_payment/core/shared_widgets/custom_button_bloc_consumer.dart';
-import 'package:checkout_payment/features/checkout/presentation/logic/cubit/stripe_payment_cubit.dart';
-import 'package:checkout_payment/features/checkout/presentation/screens/payment_details/payment_details_widgets/payment_methods_list_view.dart';
+import '../../../../../../core/di/di.dart';
+import '../../../../../../core/shared_widgets/custom_button_bloc_consumer.dart';
+import '../../../logic/cubit/stripe_payment_cubit.dart';
+import '../../payment_details/payment_details_widgets/payment_methods_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +15,6 @@ class PaymentMethodsBottomSheet extends StatefulWidget {
 }
 
 class _PaymentMethodsBottomSheetState extends State<PaymentMethodsBottomSheet> {
-  String paymentMethod = 'stripe';
   StripePaymentCubit stripePaymentCubit = getIt<StripePaymentCubit>();
   @override
   Widget build(BuildContext context) {
@@ -28,14 +27,13 @@ class _PaymentMethodsBottomSheetState extends State<PaymentMethodsBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: [
             PaymentMethodsListView(
-              paymentMethod: paymentMethod,
+              stripePaymentCubit: stripePaymentCubit,
             ),
             SizedBox(
               height: 30.h,
             ),
             CustomButtonBlocConsumer(
               stripePaymentCubit: stripePaymentCubit,
-              paymentMethod: paymentMethod,
             )
           ],
         ),

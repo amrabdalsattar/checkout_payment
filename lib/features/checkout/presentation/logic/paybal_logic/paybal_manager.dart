@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:checkout_payment/core/utils/app_router.dart';
-import 'package:checkout_payment/core/utils/paybal_service/paypal_view.dart';
-import 'package:checkout_payment/features/checkout/presentation/screens/payment_completion/payment_completion_screen.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/paybal_service/paypal_view.dart';
+import '../../screens/payment_completion/payment_completion_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/api_keys.dart';

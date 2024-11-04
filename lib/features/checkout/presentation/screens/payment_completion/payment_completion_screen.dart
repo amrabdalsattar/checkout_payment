@@ -1,9 +1,9 @@
-import '../../../../../core/shared_widgets/custom_app_bar.dart';
-import '../../../../../core/utils/images.dart';
-import 'widgets/dashed_separator.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/shared_widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/images.dart';
+import 'widgets/dashed_separator.dart';
 import 'widgets/payment_completion_card.dart';
 
 part 'widgets/ticket.dart';
