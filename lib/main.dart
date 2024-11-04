@@ -1,20 +1,24 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/di/di.dart';
 import 'core/utils/api_keys.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_constants.dart';
 import 'core/utils/app_router.dart';
+import 'core/utils/initial_setup_manager.dart';
 import 'features/checkout/presentation/screens/cart/cart_screen.dart';
-
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   configureDependencies();
+
   Stripe.publishableKey = ApiKeys.stripePublishableKey;
+
+  InitialSetupManager.setUpSystemUI();
+
   await ScreenUtil.ensureScreenSize();
+
   runApp(const CheckoutPayment());
 }
 
@@ -23,10 +27,6 @@ class CheckoutPayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: AppColors.white,
-      statusBarIconBrightness: Brightness.dark,
-    ));
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,

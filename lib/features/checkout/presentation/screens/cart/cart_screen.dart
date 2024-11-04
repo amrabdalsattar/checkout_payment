@@ -1,14 +1,13 @@
-import 'custom_cart_widgets/payment_methods_bottom_sheet.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/shared_widgets/custom_app_bar.dart';
 import '../../../../../core/shared_widgets/custom_button.dart';
 import '../../../../../core/shared_widgets/custom_divider.dart';
 import '../../../../../core/shared_widgets/total_price.dart';
-
 import '../../../../../core/utils/images.dart';
 import 'custom_cart_widgets/order_info_item.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'custom_cart_widgets/payment_methods_bottom_sheet.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

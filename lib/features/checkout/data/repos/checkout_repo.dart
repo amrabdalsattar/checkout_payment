@@ -1,8 +1,8 @@
-import '../../../../core/networking/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+import '../../../../core/networking/failure.dart';
 import '../data_sources/payment_services/stripe_service.dart';
 import '../models/payment_intent_input_model.dart';
 
